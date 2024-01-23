@@ -4,11 +4,39 @@ import { useState } from 'react';
 function Weather() {
 	const [zipCode, setZipCode] = useState('');
 	const [unit, setUnit] = useState('imperial');
+	const [weatherData, setWeatherData] = useState(null);
+	const [error, setError] = useState(null);
+
+	const fetchWeather = async () => {
+		if (zipCode === '') {
+			alert("Please enter a ZIP code.");
+			return;
+		}
+
+		const apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY
+		const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=${unit}&appid=${apiKey}`;
+
+		try {
+			const response = await fetch(url);
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+			const data = await response.json();
+			setWeatherData(data);
+		} catch (error) {
+			setError(`Failed to fetch weather data: ${error.message}`);
+		}
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		fetchWeather();
+};
 
 	return (
 		<div className="Weather-App">
 			<h1>Weather</h1>
-			<form>
+			<form onSubmit={handleSubmit}>
 				<input
 					type="text"
 					pattern="\d{5}"
@@ -47,8 +75,17 @@ function Weather() {
 					<label htmlFor="celsius">Celsius</label>
 				</div>
 
-				<button>Submit</button>
+				<button type="submit">Get Weather</button>
 			</form>
+
+			{weatherData && (
+				<div>
+					<h2>Weather Data</h2>
+					<p>{JSON.stringify(weatherData)}</p>
+				</div>
+			)}
+
+			{error && <p>Error: {error}</p>}
 		</div>
 	)
 }
