@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState} from 'react';
+import DisplayWeather from './DisplayWeather';
 
 function Weather() {
 	const [zipCode, setZipCode] = useState('');
@@ -78,13 +78,10 @@ function Weather() {
 				<button type="submit">Get Weather</button>
 			</form>
 
-			{weatherData && (
-				<div>
-					<h2>Weather Data</h2>
-					<p>{JSON.stringify(weatherData)}</p>
-				</div>
-			)}
+			{/* Use the DisplayWeather component */}
+			<DisplayWeather weatherData={weatherData} />
 
+			{/* If there is an error, display an error message */}	
 			{error && <p>Error: {error}</p>}
 		</div>
 	)
