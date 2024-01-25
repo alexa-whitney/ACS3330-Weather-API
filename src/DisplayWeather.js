@@ -1,9 +1,10 @@
 import React from 'react';
 
 function DisplayWeather({ weatherData }) {
-	// If weatherData is null, do not display anything.
-	if (!weatherData) return null;
-
+	// If weatherData is null, display custom message.
+	if (!weatherData) {
+		return <p>No weather data available. Please submit a ZIP code to get weather information.</p>;
+	}
 	// Checks the 'cod' property of 'weatherData' that is returned from the API. If it is not 200, 
 	// display an error message.
 	if (weatherData.cod !== 200) {

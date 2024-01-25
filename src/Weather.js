@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import DisplayWeather from './DisplayWeather';
 
 function Weather() {
@@ -31,7 +31,7 @@ function Weather() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		fetchWeather();
-};
+	};
 
 	return (
 		<div className="Weather-App">
@@ -78,11 +78,14 @@ function Weather() {
 				<button type="submit">Get Weather</button>
 			</form>
 
-			{/* Use the DisplayWeather component */}
-			<DisplayWeather weatherData={weatherData} />
+			{/* Conditional Rendering */}
+			{error ? (
+				<p>Error fetching weather: {error}</p>
+			) : (
+				<DisplayWeather weatherData={weatherData} />
+			)}
 
-			{/* If there is an error, display an error message */}	
-			{error && <p>Error: {error}</p>}
+
 		</div>
 	)
 }
