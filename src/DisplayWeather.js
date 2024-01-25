@@ -13,7 +13,7 @@ function DisplayWeather({ weatherData }) {
 
 	// Otherwise ('cod' == 200), display the weather forecast.
 	return (
-		<div>
+		<div className="weather-data-card">
 			<h2>Weather in {weatherData.name}</h2>
 			<p>Temperature: {weatherData.main.temp}°</p>
 			<p>Feels Like: {weatherData.main.feels_like}°</p>

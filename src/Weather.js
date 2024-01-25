@@ -35,7 +35,7 @@ function Weather() {
 
 	return (
 		<div className="Weather-App">
-			<h1>Weather</h1>
+			<h1>WeatherWise</h1>
 			<form onSubmit={handleSubmit}>
 				<input
 					type="text"
@@ -80,7 +80,7 @@ function Weather() {
 
 			{/* Conditional Rendering */}
 			{error ? (
-				<p>Error fetching weather: {error}</p>
+				<p className="error">Error fetching weather: {error}</p>
 			) : (
 				<DisplayWeather weatherData={weatherData} />
 			)}

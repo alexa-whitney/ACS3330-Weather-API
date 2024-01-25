@@ -1,38 +1,75 @@
 .App {
   text-align: center;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  color: navy;
+  padding: 20px;
+  min-height: 100vh; /* Full height view */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Weather-App {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  padding: 20px;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(100, 654, 348, 2.8);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+input,
+select,
+button {
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+  background-color: green;
+}
+
+.weather-data-card {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 2.8);
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+label,
+p {
+  font-size: 1.2rem;
+}
+
+input[type="text"],
+select {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #fff;
+  color: red;
+  font-size: larger;
+}
+
+input[type="radio"] {
+  accent-color: red;
 }
