@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DisplayWeather from './DisplayWeather';
 import WeatherForm from './WeatherForm';
+import ErrorDisplay from './ErrorDisplay';
 
 function Weather() {
 	const [zipCode, setZipCode] = useState('');
@@ -47,7 +48,7 @@ function Weather() {
 
 			{/* Conditional Rendering */}
 			{error ? (
-				<p className="error">Error fetching weather: {error}</p>
+				<ErrorDisplay errorMessage={`Error fetching weather: ${error}`} />
 			) : (
 				<DisplayWeather weatherData={weatherData} />
 			)}
