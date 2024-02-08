@@ -21,5 +21,7 @@ WeatherWise is a sleek and user-friendly weather forecasting app. Utilizing data
 
 ## Screenshots
 ![Weather](https://i.imgur.com/l0Ipnl7.png)
+![Weahter with Geolocation](https://i.imgur.com/sf753Zh.png)
 ![No Weather = Initial State](https://i.imgur.com/e3AYXuu.png)
+![No Weather with Geolocation = Initial State](https://i.imgur.com/Cu7Li4R.png)
 ![Error](https://i.imgur.com/6CZQ0CL.png)
