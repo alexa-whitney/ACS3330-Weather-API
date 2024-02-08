@@ -1,6 +1,6 @@
 import React from 'react';
 
-function WeatherForm({ zipCode, setZipCode, unit, setUnit, handleSubmit }) {
+function WeatherForm({ zipCode, setZipCode, unit, setUnit, handleSubmit, handleGeolocation }) {
     return (
         <form onSubmit={handleSubmit}>
             <input
@@ -42,6 +42,7 @@ function WeatherForm({ zipCode, setZipCode, unit, setUnit, handleSubmit }) {
             </div>
 
             <button type="submit">Get Weather</button>
+            <button type="button" onClick={handleGeolocation}>Use My Location</button>
         </form>
     );
 }
